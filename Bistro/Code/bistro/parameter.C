@@ -36,10 +36,6 @@ void usage(ostream& f)
   f << "    --onlyBootstrap                |  only does the bootstrap sample of trees (false)" << endl;
   f << "    --no-mcmc                      |  do not use MCMC to estimate Q" << endl;
   f << "    -m num                         |  nonnegative integer number of MCMC cycles (1000), update Q and all edge lengths" << endl;
-  f << "    --mbfile file                  |  [not used in bistro] mrbayes file after mb2badger (.tre) for distances" << endl;
-  f << "    --bistrofile file              |  [not used in bistro] bistro file (.treeBL) for distances" << endl;
-  f << "    --only-mcmc                    |  only does the MCMC for a fixed tree (false)" << endl;
-  f << "    --skip int                     |  [not used in bistro] number of trees to skip in mrbayes (0)" << endl;
   exit(1);
 }
 
@@ -267,10 +263,6 @@ void Parameter::processCommandLine(int argc,char* argv[])
     {
       onlyBootstrap = true;
     }
-    else if ( strcmp(argv[k],"--only-mcmc") == 0 )
-    {
-      onlyMCMC = true;
-    }
     else if ( strcmp(argv[k],"--fixedQ") == 0 )
     {
       fixedQ = true;
@@ -311,21 +303,7 @@ void Parameter::processCommandLine(int argc,char* argv[])
       }
       else
       {
-        cerr << "Error: flag `--eta' not followed by a positive value" << endl;
-        usage(cerr);
-      }
-    }
-    else if ( strcmp(argv[k],"--skip") == 0 )
-    {
-      if ( ++k < argc )
-      {
-        stringstream s;
-        s << argv[k];
-        s >> skip;
-      }
-      else
-      {
-        cerr << "Error: flag `--skip' not followed by a positive integer" << endl;
+        cerr << "Error: flag `--eta' not followed by a postive value" << endl;
         usage(cerr);
       }
     }
@@ -340,34 +318,6 @@ void Parameter::processCommandLine(int argc,char* argv[])
       else
       {
         cerr << "Error: flag `--threads' not followed by a postive value" << endl;
-        usage(cerr);
-      }
-    }
-    else if ( strcmp(argv[k],"--mbfile") == 0 )
-    {
-      if ( ++k < argc )
-      {
-        stringstream s;
-        s << argv[k];
-        s >> mbfile;
-      }
-      else
-      {
-        cerr << "Error: flag `--mbfile' not followed by a filename string" << endl;
-        usage(cerr);
-      }
-    }
-    else if ( strcmp(argv[k],"--bistrofile") == 0 )
-    {
-      if ( ++k < argc )
-      {
-        stringstream s;
-        s << argv[k];
-        s >> bistrofile;
-      }
-      else
-      {
-        cerr << "Error: flag `--bistrofile' not followed by a filename string" << endl;
         usage(cerr);
       }
     }

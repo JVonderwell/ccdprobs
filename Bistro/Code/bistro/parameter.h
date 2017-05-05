@@ -34,10 +34,6 @@ private:
   bool enteredS;
   bool doMCMC;
   int numMCMC;
-  string mbfile; //for main-distances.C
-  string bistrofile; //for main-distances.C
-  bool onlyMCMC;
-  int skip; //for main-distances.C
 public:
   Parameter()
   {
@@ -63,8 +59,6 @@ public:
     enteredS = false;
     doMCMC = true;
     numMCMC = 1000;
-    onlyMCMC = false;
-    skip=0;
   }
   string getSequenceFileName() const { return sequenceFileName; }
   void setSequenceFileName(string x) { sequenceFileName = x; }
@@ -113,14 +107,6 @@ public:
   void setDoMCMC(bool b) { doMCMC = b; }
   int getNumMCMC() { return numMCMC; }
   void setNumMCMC(int x) { numMCMC = x; }
-  string getMBfile() const { return mbfile; }
-  void setMBfile(string x) { mbfile = x; }
-  string getBistrofile() const { return bistrofile; }
-  void setBistrofile(string x) { bistrofile = x; }
-  bool getOnlyMCMC() const { return onlyMCMC; }
-  void setOnlyMCMC(bool b) { onlyMCMC = b; }
-  int getSkip() const { return skip; }
-  void setSkip(int n) { skip = n; }
 };
 
 #endif

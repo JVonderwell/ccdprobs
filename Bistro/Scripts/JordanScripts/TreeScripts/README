@@ -1,0 +1,15 @@
+Parser and plotter for comparison of MB and bistro most likely trees
+
+After running bistro and MB on the nexus and fasta files, I ran Parser
+./Parser <bistroFile>.topCounts <bistroFile>.bistroSum
+to parse out the bistro tree information
+
+I then ran Badger on <mbFile>.nex.t followed by Summarize on <mbFile>.nex.top
+to get what I called <mbFile>.mbSum by personal convention
+
+I then opened TreePlotter in RStudio, entered in <bistroFile>.bistroSum and <mbFile>.mbSum in for variables bistroFile and mbFile, and simply ran the script which gives a plot as output
+
+I'm certain there are cleaner and more efficient ways to do this, but this system worked simply enough and I never had any runtime issues so it gets the job done.
+
+Any questions, I'm best reached at:
+vonderwell@wisc.edu

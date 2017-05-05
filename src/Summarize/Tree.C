@@ -14,9 +14,11 @@ void Tree::print(ostream& c) {
 
 void Tree::printTopology(ostream& c) {
   if(left)
-//    if (num!=0)
-    if (false)
-      c << topologyName(clade->name,num);
+   
+  // CHANGED THIS TO WORK WITH UNROOTED TREES
+  // if (num!=0)
+     if (false)
+	 c << topologyName(clade->name,num);
     else {
       c << "(";
       left->printTopology(c);

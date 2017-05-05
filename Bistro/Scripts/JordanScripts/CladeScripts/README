@@ -1,0 +1,14 @@
+Parser and Plotter for analysis of common clades from output of both bistro and mb
+
+After running bistro and mb on .nexus and .fasta files, I ran bistroCladeParser and mbCladeParser which pulls the information from their outputs
+./bistroCladeParser <bistroFile>-nopars.smap <bistroFile>.bistroClades
+./mbCladeParser <mbFile>.nex.pars <mbFile>.nex.tstat <mbFile>.nex.mbClades
+
+Note: this requires bistros clades to be represented in star and dot format like mister bayes. My version of ccdprobs is set to do this, but note if using other versions.
+
+I then used those filenames as bistroFile and mbFile in CladePlotter.R and the plot is output. Pretty simple procedure.
+
+Again, I'm certain there are better ways to do this, but this got the job done for me.
+
+Any questions, I'm best reached at:
+vonderwell@wisc.edu
